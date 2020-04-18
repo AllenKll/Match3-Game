@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://GroundGem.tscn" type="PackedScene" id=2]
+[ext_resource path="res://World.gd" type="Script" id=3]
+[ext_resource path="res://GemFactory.tscn" type="PackedScene" id=4]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Board" type="TileMap" parent="."]
+format = 1
+
+[node name="GroundGem" parent="Board" instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 0, 512 )
+
+[node name="GroundGem2" parent="Board" instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 320, 512 )
+
+[node name="GroundGem3" parent="Board" instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 256, 512 )
+
+[node name="GroundGem4" parent="Board" instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 192, 512 )
+
+[node name="GroundGem5" parent="Board" instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 128, 512 )
+
+[node name="GroundGem6" parent="Board" instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 64, 512 )
+
+[node name="GroundGem7" parent="Board" instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 448, 512 )
+
+[node name="GroundGem8" parent="Board" instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 384, 512 )
+
+[node name="GemFactory2" parent="Board" instance=ExtResource( 4 )]
+position = Vector2( 0, -64 )
+
+[node name="GemFactory3" parent="Board" instance=ExtResource( 4 )]
+position = Vector2( 64, -64 )
+
+[node name="GemFactory5" parent="Board" instance=ExtResource( 4 )]
+position = Vector2( 128, -64 )
+
+[node name="GemFactory4" parent="Board" instance=ExtResource( 4 )]
+position = Vector2( 192, -64 )
+
+[node name="GemFactory7" parent="Board" instance=ExtResource( 4 )]
+position = Vector2( 256, -64 )
+
+[node name="GemFactory6" parent="Board" instance=ExtResource( 4 )]
+position = Vector2( 320, -64 )
+
+[node name="GemFactory9" parent="Board" instance=ExtResource( 4 )]
+position = Vector2( 384, -64 )
+
+[node name="GemFactory8" parent="Board" instance=ExtResource( 4 )]
+position = Vector2( 448, -64 )
