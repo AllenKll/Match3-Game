@@ -48,6 +48,7 @@ func _process(_delta):
 		TWO_SELECTED:
 			swap_gems()
 			deselectGems()
+			state = NONE_SELECTED
 
 func validMatch():
 	pass
@@ -66,6 +67,13 @@ func enableGemsToMove(enabled):
 	
 
 func swap_gems():
+	#check distance between gems
+	var difference = selectedGem[0].position - selectedGem[1].position
+	
+	#abort if too far apart
+	if difference.abs().length() > 64:
+		return
+		
 	enableGemsToMove(false)
 	selectedGem[0].swapTop(selectedGem[1].position)
 	selectedGem[1].swapBottom(selectedGem[0].position)
@@ -95,11 +103,9 @@ func onGemSelected(gem):
 
 func onGemMoving():
 	numGemsMoving += 1
-	print(numGemsMoving)
 
 func onGemStopped():
 	numGemsMoving -= 1
-	print(numGemsMoving)
 
 func arrayToGrid(pos):
 	var x = pos.x
