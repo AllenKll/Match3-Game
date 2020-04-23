@@ -17,4 +17,11 @@ offset = Vector2( 32, 32 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 32, 32 )
 shape = SubResource( 1 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 32, 32 )
+enabled = true
+cast_to = Vector2( 0, 5 )
+collide_with_areas = true
+collide_with_bodies = false
 [connection signal="area_exited" from="." to="." method="_on_GemFactory_area_exited"]

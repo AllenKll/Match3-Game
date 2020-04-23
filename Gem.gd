@@ -45,10 +45,12 @@ func tweenDone(_object, _nodepath):
 		
 
 func swapTop(pos):
+	emit_signal("gem_moving")
 	tween.move_to( self, pos )
 	is_moving = true;
 	
 func swapBottom(pos):
+	emit_signal("gem_moving")
 	tween.move_to( self,pos )
 	is_moving = true;
 

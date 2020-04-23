@@ -39,6 +39,7 @@ func _process(_delta):
 			if selectedGem[0] != null:
 				deselectGems()
 			if numGemsMoving == 0:
+				enableGemsToMove(true)
 				state = NONE_SELECTED
 		ONE_SELECTED:
 			pass
@@ -47,12 +48,6 @@ func _process(_delta):
 		TWO_SELECTED:
 			swap_gems()
 			deselectGems()
-		SWAPPED:
-			# check for match
-			state = NONE_SELECTED
-			pass
-			
-			
 
 func validMatch():
 	pass
@@ -63,11 +58,18 @@ func deselectGems():
 			selectedGem[i].deselect()
 			selectedGem[i] = null
 
+func enableGemsToMove(enabled):
+	for gem in gems:
+		if gem == selectedGem[0] || gem == selectedGem[1]:
+			continue
+		gem.movable = enabled
+	
 
 func swap_gems():
+	enableGemsToMove(false)
 	selectedGem[0].swapTop(selectedGem[1].position)
 	selectedGem[1].swapBottom(selectedGem[0].position)
-	state = SWAPPED
+	state = MOVING
 
 func newGem(gem):
 	gem.connect("gem_stopped", self, "onGemStopped")
@@ -93,9 +95,11 @@ func onGemSelected(gem):
 
 func onGemMoving():
 	numGemsMoving += 1
+	print(numGemsMoving)
 
 func onGemStopped():
 	numGemsMoving -= 1
+	print(numGemsMoving)
 
 func arrayToGrid(pos):
 	var x = pos.x
